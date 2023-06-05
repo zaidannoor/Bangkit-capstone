@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/auth', authRouter);
+
 app.use(customErrorHandler);
 app.use(page404NotFound);
 
