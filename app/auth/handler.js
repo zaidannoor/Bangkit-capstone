@@ -36,7 +36,7 @@ module.exports = {
       res.status(200).json({
         status: "success",
         message: "Successfully login user",
-        data: {
+        loginResult: {
           id: user.id,
           email: user.email,
           fullName: user.fullName,
@@ -74,10 +74,6 @@ module.exports = {
       res.status(200).json({
         status: "success",
         message: "Successfully register user",
-        data: await User.findOne({
-          attributes: { exclude: ["password", "img", "createdAt", "updatedAt"] },
-          order: [["createdAt", "DESC"]],
-        }),
       });
     } catch (error) {
       next(error);
