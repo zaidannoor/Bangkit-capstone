@@ -7,8 +7,6 @@ const customErrorHandler = require("./middleware/customErrorHandler");
 const page404NotFound = require("./middleware/handler404NotFound");
 var app = express();
 
-require("dotenv").config();
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
