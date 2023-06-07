@@ -3,11 +3,10 @@ var path = require("path");
 var logger = require("morgan");
 
 const authRouter = require('./app/auth/route');
+const userRouter = require('./app/user/route');
 const customErrorHandler = require("./middleware/customErrorHandler");
 const page404NotFound = require("./middleware/handler404NotFound");
 var app = express();
-
-require("dotenv").config();
 
 app.use(logger("dev"));
 app.use(express.json());
@@ -19,6 +18,7 @@ app.get("/", (req, res) => {
 });
 
 app.use('/auth', authRouter);
+app.use('/user', userRouter);
 
 app.use(customErrorHandler);
 app.use(page404NotFound);
