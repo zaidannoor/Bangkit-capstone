@@ -39,7 +39,7 @@ module.exports = {
         loginResult: {
           id: user.id,
           email: user.email,
-          fullName: user.fullName,
+          userName: user.userName,
           role: user.Role.roleName,
           accessToken,
         },
