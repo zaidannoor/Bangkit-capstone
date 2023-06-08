@@ -24,11 +24,13 @@ function applyExtraSetup(sequelize) {
   Message.belongsTo(User, {
     foreignKey: "pengirim",
     targetKey: "id",
+    as: "Pengirim",
   });
 
   Message.belongsTo(User, {
     foreignKey: "penerima",
     targetKey: "id",
+    as: "Penerima",
   });
 }
 

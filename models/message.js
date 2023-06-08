@@ -6,12 +6,17 @@ function createModelMessage(Sequelize, DataTypes) {
           type: DataTypes.INTEGER,
           primaryKey: true,
           allowNull: false,
+          autoIncrement: true,
         },
         pengirim: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
         penerima: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+        },
+        pesan: {
           type: DataTypes.STRING,
           allowNull: false,
         },
@@ -20,7 +25,7 @@ function createModelMessage(Sequelize, DataTypes) {
           allowNull: false,
         },
         updatedAt: {
-          type: DataTypes.STRING,
+          type: DataTypes.DATE,
           allowNull: false,
         },
       },

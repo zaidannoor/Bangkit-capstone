@@ -5,8 +5,16 @@ module.exports = {
         try {
             const messages = await Message.findAll({
               where: {
-                pengirim: req.user.id,
+                pengirim: 1,
               },
+              include: [
+                {
+                  model: User,
+                  as: "Penerima",
+                  attributes: ["id","userName"],
+                },
+              ],
+              attributes: { exclude: ["createdAt", "updatedAt", "penerima"] },
             });
             res.status(200).json({
               status: "success",
@@ -19,7 +27,8 @@ module.exports = {
     },
 
     handlerSendChat: async (req,res,next) => {
-        const {pengirim,penerima,pesan} = req.body;
+        try{
+            const {pengirim,penerima,pesan} = req.body;
 
         const userMessage = await Message.create({
             pengirim,
@@ -42,5 +51,10 @@ module.exports = {
             message: "Successfully chat bot",
             reply: botMessage.pesan
         });
+        }
+        catch(error){
+            next(error)
+        }
+        
     }   
 }
