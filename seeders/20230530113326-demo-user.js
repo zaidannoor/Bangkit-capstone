@@ -18,7 +18,7 @@ async function generateUser(rowCount) {
     data.push(newUser);
   }
   data.push({
-    userName: faker.name.fullName(),
+    userName: "bot-chat",
     email: faker.internet.email(),
     password: await bcrypt.hash("qwertyuiop", 10),
     id_role: 2,
