@@ -1,5 +1,5 @@
 function applyExtraSetup(sequelize) {
-  const { User, Role, Message, Conversation } = sequelize.models;
+  const { User, Role, Message} = sequelize.models;
 
   Role.hasMany(User, {
     foreignKey: "id_role",
@@ -12,34 +12,12 @@ function applyExtraSetup(sequelize) {
   });
 
   User.hasMany(Message, {
-    foreignKey: "pengirim",
-    targetKey: "id",
-  });
-
-  User.hasMany(Message, {
-    foreignKey: "penerima",
+    foreignKey: "sender",
     targetKey: "id",
   });
 
   Message.belongsTo(User, {
-    foreignKey: "pengirim",
-    targetKey: "id",
-    as: "Pengirim",
-  });
-
-  Message.belongsTo(User, {
-    foreignKey: "penerima",
-    targetKey: "id",
-    as: "Penerima",
-  });
-
-  Conversation.hasMany(Message, {
-    foreignKey: "id_conversation",
-    targetKey: "id",
-  });
-
-  Message.belongsTo(Conversation, {
-    foreignKey: "id_conversation",
+    foreignKey: "sender",
     targetKey: "id",
   });
 }

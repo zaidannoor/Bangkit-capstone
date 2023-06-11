@@ -10,15 +10,15 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
       },
-      pengirim: {
+      sender: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      penerima: {
-        type: Sequelize.INTEGER,
+      question: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      pesan: {
+      reply: {
         type: Sequelize.STRING,
         allowNull: false,
       },
