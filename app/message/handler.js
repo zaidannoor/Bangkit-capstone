@@ -24,7 +24,7 @@ module.exports = {
   handlerSendMessage: async (req, res, next) => {
     try {
       const { question } = req.body;
-      const response = await fetch('http://localhost:6060/get_response', {
+      const response = await fetch('https://flask-chat-2vz2yxz7fq-as.a.run.app/get_response', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
