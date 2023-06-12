@@ -14,7 +14,7 @@ module.exports = {
       res.status(200).json({
         status: "success",
         message: `Successfully get all messages by user ${id_user}`,
-        data: messages,
+        chatResult: messages,
       });
     } catch (error) {
       next(error);
@@ -33,7 +33,7 @@ module.exports = {
       })
 
       const responseJson = await response.json()
-      const reply = responseJson.response
+      const reply = await responseJson.response
       console.log(reply)
 
       const message = await Message.create({
@@ -44,10 +44,10 @@ module.exports = {
         updatedAt: new Date(),
       });
 
-      res.status(200).json({
+      await res.status(200).json({
         status: "success",
         message: "Successfully chat bot",
-        data: message,
+        chatResult: message,
       });
     } catch (error) {
       next(error);

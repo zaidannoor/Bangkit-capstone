@@ -8,7 +8,7 @@ module.exports = {
       res.status(200).json({
         status: "success",
         message: "Successfully get all Users",
-        data: users.map((x) => ({
+        userResult: users.map((x) => ({
           id: x.id,
           userName: x.userName,
           email: x.email,
@@ -29,7 +29,7 @@ module.exports = {
       res.status(200).json({
         status: "success",
         message: "Successfully detail user",
-        data: {
+        userResult: {
           id: user.id,
           email: user.email,
           fullName: user.userName,
