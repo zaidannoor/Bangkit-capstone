@@ -10,6 +10,7 @@ module.exports = {
         where: {
           sender: id_user,
         },
+        attributes: { exclude: ["createdAt", "updatedAt"] },
       });
       res.status(200).json({
         status: "success",

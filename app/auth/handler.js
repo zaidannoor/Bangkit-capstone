@@ -66,6 +66,7 @@ module.exports = {
         email,
         userName,
         password: hashPassword,
+        img: "https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png",
         id_role: 1,
         createdAt: new Date(),
         updatedAt: new Date(),

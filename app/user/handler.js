@@ -19,7 +19,7 @@ module.exports = {
     }
   },
 
-  handlerGetDetailUser: async (req,res,next) => {
+  handlerGetDetailUser: async (req, res, next) => {
     try {
       const { id } = req.params;
       const user = await User.findByPk(id);
@@ -32,13 +32,36 @@ module.exports = {
         userResult: {
           id: user.id,
           email: user.email,
-          fullName: user.userName,
-          image: user.img
+          userName: user.userName,
+          image: user.img,
         },
       });
     } catch (error) {
       next(error);
     }
-  }
+  },
 
+  handlerChangeProfileUser: async (req, res, next) => {
+    try {
+      const id = req.user.id;
+      const { userName } = req.body;
+
+      const getUser = await User.findByPk(id);
+      if (!getUser) {
+        throw new Error("User not found");
+      }
+
+      await getUser.update({
+        userName
+      })
+
+      res.status(201).json({
+        status: "success",
+        message: "Successfully Update User Profile",
+      });
+
+    } catch (error) {
+      next(error);
+    }
+  },
 };
