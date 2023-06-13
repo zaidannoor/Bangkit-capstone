@@ -1,14 +1,19 @@
-function createModelRole(Sequelize, DataTypes) {
-    const Role = Sequelize.define(
-      "Role",
+function createModelMessage(Sequelize, DataTypes) {
+    const Message = Sequelize.define(
+      "Conversation",
       {
         id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
           allowNull: false,
+          autoIncrement: true,
         },
-        roleName: {
+        title: {
           type: DataTypes.STRING,
+          allowNull: false,
+        },
+        id_user: {
+          type: DataTypes.INTEGER,
           allowNull: false,
         },
         createdAt: {
@@ -16,16 +21,16 @@ function createModelRole(Sequelize, DataTypes) {
           allowNull: false,
         },
         updatedAt: {
-          type: DataTypes.STRING,
+          type: DataTypes.DATE,
           allowNull: false,
         },
       },
       {
-        tableName: "roles",
+        tableName: "conversations",
       }
     );
-    return Role;
+    return Message;
   }
   
-  module.exports = createModelRole;
+  module.exports = createModelMessage;
   

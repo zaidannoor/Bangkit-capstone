@@ -25,10 +25,6 @@ function createModelUser(Sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      id_role: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,

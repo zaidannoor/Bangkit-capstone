@@ -3,7 +3,7 @@ const {
   validateCreateUserSchema,
   validateLoginUserSchema,
 } = require("../../validator/user");
-const { User, Role } = require("../../models");
+const { User } = require("../../models");
 const generateAccessToken = require("../../utils/tokenManager");
 
 module.exports = {
@@ -15,7 +15,6 @@ module.exports = {
         where: {
           email: email,
         },
-        include: [{ model: Role }],
       });
       if (!user) {
         throw new Error("User not found");
@@ -31,7 +30,6 @@ module.exports = {
       const accessToken = generateAccessToken({
         id: user.id,
         email: user.email,
-        id_role: user.id_role,
       });
       res.status(200).json({
         status: "success",
@@ -40,7 +38,6 @@ module.exports = {
           id: user.id,
           email: user.email,
           userName: user.userName,
-          role: user.Role.roleName,
           accessToken,
         },
       });
@@ -67,7 +64,6 @@ module.exports = {
         userName,
         password: hashPassword,
         img: "https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png",
-        id_role: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       });

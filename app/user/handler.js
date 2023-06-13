@@ -1,4 +1,4 @@
-const { User, Role } = require("../../models");
+const { User } = require("../../models");
 
 module.exports = {
   handlerGetUser: async (req, res, next) => {
@@ -21,7 +21,7 @@ module.exports = {
 
   handlerGetDetailUser: async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const id = req.user.id;
       const user = await User.findByPk(id);
       if (!user) {
         throw new Error("User not found");

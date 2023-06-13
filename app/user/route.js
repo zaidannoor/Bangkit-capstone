@@ -9,7 +9,7 @@ const {
 const router = Express.Router();
 
 router.get("/", authenticationToken, handlerGetUser);
-router.get("/:id", authenticationToken, handlerGetDetailUser);
+router.get("/detail", authenticationToken, handlerGetDetailUser);
 router.put("/edit", authenticationToken, handlerChangeProfileUser);
 
 module.exports = router;
