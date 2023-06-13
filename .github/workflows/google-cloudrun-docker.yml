@@ -117,7 +117,6 @@ jobs:
             DB_USER=${{ secrets.DB_USER }}
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
             DB_NAME=${{ secrets.DB_NAME }}
-            GCP_SA_ENVI= ${{ secrets.GCP_CREDENTIALS }}
           # secrets: |
           #   GCP_SA= ${{ secrets.GCP_CREDENTIALS }}
 
