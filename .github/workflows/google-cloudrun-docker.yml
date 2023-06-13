@@ -118,8 +118,8 @@ jobs:
             DB_PASSWORD=${{ secrets.DB_PASSWORD }}
             DB_NAME=${{ secrets.DB_NAME }}
             GCP_SA_ENVI= ${{ secrets.GCP_CREDENTIALS }}
-          secrets: |
-            GCP_SA= ${{ secrets.GCP_CREDENTIALS }}
+          # secrets: |
+          #   GCP_SA= ${{ secrets.GCP_CREDENTIALS }}
 
       # If required, use the Cloud Run url output in later steps
       - name: Show Output
