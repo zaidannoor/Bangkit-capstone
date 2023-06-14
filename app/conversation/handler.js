@@ -2,9 +2,9 @@ const { default: fetch } = require("node-fetch");
 const { User, Message, Conversation } = require("../../models");
 
 module.exports = {
-  handlerCreateConversation: async (req,res,next) => {
+  handlerCreateConversation: async (req, res, next) => {
     try {
-      const id_user = req.user.id
+      const id_user = req.user.id;
       const newConversation = await Conversation.create({
         title: "New Conversation",
         id_user,
@@ -24,7 +24,7 @@ module.exports = {
 
   handlerGetConversation: async (req, res, next) => {
     try {
-      const id_user = req.user.id
+      const id_user = req.user.id;
       const conversations = await Conversation.findAll({
         where: {
           id_user,
@@ -42,7 +42,36 @@ module.exports = {
     }
   },
 
-  handlerGetChat: async (req,res,next) => {
+  handlerDeleteConversation: async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      console.log(id)
+      // delete all messages with id_conversation = id
+      await Message.destroy({
+        where: {
+          id_conversation: id
+        }
+      });
+
+      // delete the conversation where id = id
+      await Conversation.destroy({
+        where: {
+          id
+        }
+      });
+
+      res.status(200).json({
+        status: "success",
+        message: `Successfully delete conversation ${id} and all messages within it`,
+      });
+
+      
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  handlerGetChat: async (req, res, next) => {
     try {
       const { id } = req.params;
       const messages = await Message.findAll({
@@ -67,28 +96,31 @@ module.exports = {
       const { id } = req.params;
       const { question } = req.body;
 
-      // change title to first question chat    
+      // change title to first question chat
       const getConversation = await Conversation.findByPk(id);
       if (!getConversation) {
         throw new Error("Conversation not found");
       }
-      if(getConversation.title == "New Conversation"){
+      if (getConversation.title == "New Conversation") {
         await getConversation.update({
-          title: question
-        })
+          title: question,
+        });
       }
 
       // Get Reply from Machine Learning Service
-      const response = await fetch('https://flask-chat-2vz2yxz7fq-as.a.run.app/get_response', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({question})
-      })
+      const response = await fetch(
+        "https://flask-chat-2vz2yxz7fq-as.a.run.app/get_response",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question }),
+        }
+      );
 
-      const responseJson = await response.json()
-      const reply = await responseJson.response
+      const responseJson = await response.json();
+      const reply = await responseJson.response;
 
       const message = await Message.create({
         id_conversation: id,
@@ -107,5 +139,4 @@ module.exports = {
       next(error);
     }
   },
-
 };
