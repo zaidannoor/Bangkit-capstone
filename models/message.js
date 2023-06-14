@@ -8,7 +8,7 @@ function createModelMessage(Sequelize, DataTypes) {
           allowNull: false,
           autoIncrement: true,
         },
-        sender: {
+        id_conversation: {
           type: DataTypes.INTEGER,
           allowNull: false,
         },

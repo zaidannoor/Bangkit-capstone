@@ -10,7 +10,7 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
       },
-      sender: {
+      id_conversation: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },

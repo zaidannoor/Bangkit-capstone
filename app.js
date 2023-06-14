@@ -4,7 +4,7 @@ var logger = require("morgan");
 
 const authRouter = require('./app/auth/route');
 const userRouter = require('./app/user/route');
-const chatRouter = require('./app/message/route');
+const conversationRouter = require('./app/conversation/route');
 // const conversationRouter = require('./app/conversation/route');
 const customErrorHandler = require("./middleware/customErrorHandler");
 const page404NotFound = require("./middleware/handler404NotFound");
@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 
 app.use('/auth', authRouter);
 app.use('/user', userRouter);
-app.use('/chat', chatRouter);
+app.use('/conversation', conversationRouter);
 
 app.use(customErrorHandler);
 app.use(page404NotFound);
