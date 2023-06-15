@@ -15,7 +15,7 @@
 
 ## Implementation Flow
 
-![impflow](https://github.com/zaidannoor/Bangkit-capstone/assets/36230520/2d850c59-3267-413e-86c8-c76e4f9a0712)
+![impflowfix](https://github.com/zaidannoor/Bangkit-capstone/assets/36230520/a29ebe68-3caa-48c8-9d57-00e72d21e1b7)
 
 
 ## Tools
