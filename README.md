@@ -1,5 +1,4 @@
 <h1>SMILE (Support and Mental Insight for Life Empowerment)</h1>
-<h3>CC Section</h3>
 
 ![logo](https://github.com/zaidannoor/Bangkit-capstone/assets/36230520/3239cd4d-cd3b-49fe-a9a5-62338d02f68d)
 <p>According to the Indonesia-National Adolescent Mental Health Survey 2022, 15.5 million (34.9%) 
