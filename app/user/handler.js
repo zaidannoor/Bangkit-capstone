@@ -1,4 +1,4 @@
-const { User, Role } = require("../../models");
+const { User } = require("../../models");
 
 module.exports = {
   handlerGetUser: async (req, res, next) => {
@@ -8,7 +8,7 @@ module.exports = {
       res.status(200).json({
         status: "success",
         message: "Successfully get all Users",
-        data: users.map((x) => ({
+        userResult: users.map((x) => ({
           id: x.id,
           userName: x.userName,
           email: x.email,
@@ -19,9 +19,9 @@ module.exports = {
     }
   },
 
-  handlerGetDetailUser: async (req,res,next) => {
+  handlerGetDetailUser: async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const id = req.user.id;
       const user = await User.findByPk(id);
       if (!user) {
         throw new Error("User not found");
@@ -29,16 +29,39 @@ module.exports = {
       res.status(200).json({
         status: "success",
         message: "Successfully detail user",
-        data: {
+        userResult: {
           id: user.id,
           email: user.email,
-          fullName: user.userName,
-          image: user.img
+          userName: user.userName,
+          image: user.img,
         },
       });
     } catch (error) {
       next(error);
     }
-  }
+  },
 
+  handlerChangeProfileUser: async (req, res, next) => {
+    try {
+      const id = req.user.id;
+      const { userName } = req.body;
+
+      const getUser = await User.findByPk(id);
+      if (!getUser) {
+        throw new Error("User not found");
+      }
+
+      await getUser.update({
+        userName
+      })
+
+      res.status(201).json({
+        status: "success",
+        message: "Successfully Update User Profile",
+      });
+
+    } catch (error) {
+      next(error);
+    }
+  },
 };

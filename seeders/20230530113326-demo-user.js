@@ -11,17 +11,17 @@ async function generateUser(rowCount) {
       userName: faker.name.fullName(),
       email: faker.internet.email(),
       password: await bcrypt.hash("qwertyuiop", 10),
-      id_role: 1,
+      img: "https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png",
       createdAt: new Date(),
       updatedAt: new Date(),
     };
     data.push(newUser);
   }
   data.push({
-    userName: faker.name.fullName(),
-    email: faker.internet.email(),
-    password: await bcrypt.hash("qwertyuiop", 10),
-    id_role: 2,
+    userName: "Faisal Reza Rahmat",
+    email: "faisal@gmail.com",
+    password: await bcrypt.hash("sedanrembang", 10),
+    img: "https://www.pngmart.com/files/21/Account-Avatar-Profile-PNG-Photo.png",
     createdAt: new Date(),
     updatedAt: new Date(),
   });

@@ -8,16 +8,16 @@ function createModelMessage(Sequelize, DataTypes) {
           allowNull: false,
           autoIncrement: true,
         },
-        pengirim: {
+        id_conversation: {
           type: DataTypes.INTEGER,
           allowNull: false,
         },
-        penerima: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-        },
-        pesan: {
+        question: {
           type: DataTypes.STRING,
+          allowNull: false,
+        },
+        reply: {
+          type: DataTypes.STRING(500),
           allowNull: false,
         },
         createdAt: {

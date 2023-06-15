@@ -10,16 +10,16 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
       },
-      pengirim: {
+      id_conversation: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
-      penerima: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      pesan: {
+      question: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      reply: {
+        type: Sequelize.STRING(500),
         allowNull: false,
       },
       createdAt: {
