@@ -54,15 +54,15 @@ git clone https://github.com/zaidannoor/Bangkit-capstone.git
 npm install
 ```
 
-3. Customize the configuration file to suit your needs, including API keys and other settings.
+3. Customize the configuration env file to suit your needs, including API keys and other settings.
 
-4. Start the Documentation server : 
+4. Start the server : 
 
 ```sh
 npm run start
 ```
 
-5. Access the SMILE Chat Bot Documentation Server by navigating to http://localhost:3005 or (the port you get) in your web browser.
+5. Access the SMILE Chat Bot API Documentation [HERE](https://documenter.getpostman.com/view/23452370/2s93sabtuV)
 
 
 
