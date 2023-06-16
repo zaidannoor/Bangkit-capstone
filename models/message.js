@@ -17,7 +17,7 @@ function createModelMessage(Sequelize, DataTypes) {
           allowNull: false,
         },
         reply: {
-          type: DataTypes.STRING(500),
+          type: DataTypes.STRING(1000),
           allowNull: false,
         },
         createdAt: {

@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false,
       },
       reply: {
-        type: Sequelize.STRING(500),
+        type: Sequelize.STRING(1000),
         allowNull: false,
       },
       createdAt: {
