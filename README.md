@@ -30,13 +30,12 @@
 
 This Project is developed using :
 
-![Database@1 25x (11)](https://github.com/zaidannoor/Bangkit-capstone/assets/36230520/9cbca762-d650-4e4f-afc4-a7f062936977)
+![Database@1 25x (15)](https://github.com/zaidannoor/Bangkit-capstone/assets/36230520/9a478e4b-9eb1-49ee-8d67-9b2dd4467696)
 
 
 Also the libraries :
 
-![Database@1 25x (12)](https://github.com/zaidannoor/Bangkit-capstone/assets/36230520/adf3e3cf-1cdb-4ad7-8e23-9e90f99c95b0)
-
+![Database@1 25x (14)](https://github.com/zaidannoor/Bangkit-capstone/assets/36230520/f37269e6-f92e-44d5-9356-1628e5ac5342)
 
 ## Installation
 
