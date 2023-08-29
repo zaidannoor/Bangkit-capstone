@@ -109,7 +109,7 @@ module.exports = {
 
       // Get Reply from Machine Learning Service
       const response = await fetch(
-        "https://flask-chat-b7sjaocjma-et.a.run.app/get_response",
+        "http://127.0.0.1:6060/get_response",
         {
           method: "POST",
           headers: {
